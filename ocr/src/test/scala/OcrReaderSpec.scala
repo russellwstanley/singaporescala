@@ -2,6 +2,8 @@ import java.io.File
 import org.scalatest.FlatSpec
 import org.scalatest.Matchers
 import main.scala.OcrReader
+import org.scalatest.{Matchers, FlatSpec}
+import scala.io.Source
 
 /**
  * Created by russell on 04/03/14.
@@ -14,4 +16,31 @@ class OcrReaderSpec extends FlatSpec with Matchers{
     println(reader.from4To1( List("    _  _     _  _  _  _  _ ","  | _| _||_||_ |_   ||_||_|","  ||_  _|  | _||_|  ||_| _|","                           ") ))
     println(reader.parse(file.getAbsolutePath()))
   }
+
+  val one = "     |  |"
+  val two = " _  || "
+  val three = " _  _| _|"
+  val four = "   |_|  |"
+  val five = " _ |_  _|"
+  val six = " _ |_ |_|"
+  val seven = " _   |  |"
+  val eight = " _ |_||_|"
+  val nine = " _ |_| _|"
+
+  it should "parse individual number strings directly" in {
+    val reader = new OcrReader()
+    reader.parseNumber(one) should be (1)
+    reader.parseNumber(two) should be (2)
+    reader.parseNumber(three) should be (3)
+    reader.parseNumber(four) should be (4)
+    reader.parseNumber(five) should be (5)
+    reader.parseNumber(six) should be (6)
+    reader.parseNumber(seven) should be (7)
+    reader.parseNumber(eight) should be (8)
+    reader.parseNumber(nine) should be (9)
+
+
+  }
+
+
 }

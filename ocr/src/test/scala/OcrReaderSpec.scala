@@ -1,4 +1,7 @@
 import java.io.File
+import org.scalatest.FlatSpec
+import org.scalatest.Matchers
+import main.scala.OcrReader
 import org.scalatest.{Matchers, FlatSpec}
 import scala.io.Source
 
@@ -8,8 +11,10 @@ import scala.io.Source
 class OcrReaderSpec extends FlatSpec with Matchers{
   "An Ocr reader" should "parse a file correctly" in {
     val reader = new OcrReader()
-    val source = Source.fromFile(getClass().getResource("/testfile1").getFile())
-    reader.parse(source) should be (List(123456789))
+    val file = new File(getClass().getResource("/testfile1").getFile())
+    file.exists() should be (true)
+    println(reader.from4To1( List("    _  _     _  _  _  _  _ ","  | _| _||_||_ |_   ||_||_|","  ||_  _|  | _||_|  ||_| _|","                           ") ))
+    println(reader.parse(file.getAbsolutePath()))
   }
 
   val one = "     |  |"

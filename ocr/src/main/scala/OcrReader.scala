@@ -18,9 +18,8 @@ class OcrReader {
 
 
   def parse(source : Source): List[Int] = {
-    source.getLines().map(str => str.toList).grouped(4).map(fourLines => {
-      println(fourLines)
-    })
+    println("hellooooooo")
+    //source.getLines().map(str => str.toList).toList.grouped(4).transpose
     List(0)
   }
 

@@ -1,10 +1,9 @@
-
 package main.scala
 
 import scala.io.Source
 
 /**
- * Created by russell on 04/03/14.
+ * Created by Singapore Scala Programmers on 04/03/14.
  */
 class OcrReader {
 
